@@ -1,6 +1,6 @@
 import re
 
-s = 'textfile.txt'
+s = input ("Enter filename : ")
 f = open(s, 'r')
 text = f.read()
 

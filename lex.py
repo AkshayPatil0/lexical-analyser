@@ -1,6 +1,6 @@
 import re
 
-s = input ("Enter filename : ")
+s = input("Enter filename : ")
 f = open(s, 'r')
 text = f.read()
 

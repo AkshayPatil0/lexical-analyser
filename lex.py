@@ -27,7 +27,15 @@ isCmt = 0
 token = ''
 
 for i in text:
-	if i == '"' or i == "'":
+	if i == '/':
+		isCmt = isCmt+1
+
+	elif isCmt == 2:
+		if i == '\n':
+			token = ''
+			isCmt = 0
+	
+	elif i == '"' or i == "'":
 		if isStr:
 			tokens.append(token)
 			token = ''
@@ -35,14 +43,6 @@ for i in text:
 
 	elif isStr:
 		token = token+i
-
-	elif i == '/':
-		isCmt = isCmt+1
-
-	elif isCmt == 2:
-		if i == '\n':
-			token = ''
-			isCmt = 0
     
 	elif i in symbols:
 		tokens.append(i)
